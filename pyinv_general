@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
-path_to_me="$(dirname $0)/$(readlink -n $0)"
-path_to_dir="$(dirname $path_to_me)"
-python_file="$(basename $path_to_me)".py
-cd "$path_to_dir"
-pipenv run python "$python_file" "$@"
+
+# Cd into source file directory
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+cd -P "$( dirname "$SOURCE" )"
+
+# Run py file
+PYFILE="$(basename $SOURCE)".py
+pipenv run python "$PYFILE" "$@"
