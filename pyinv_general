@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+path_to_me="$(dirname $0)/$(readlink -n $0)"
+path_to_dir="$(dirname $path_to_me)"
+python_file="$(basename $path_to_me)".py
+cd "$path_to_dir"
+pipenv run python "$python_file" "$@"
