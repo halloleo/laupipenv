@@ -12,7 +12,7 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 
 # activate the venv
-VENVDIR="$WORKON_HOME/standardx"
+VENVDIR="$WORKON_HOME/standard"
 source "$VENVDIR/bin/activate" || exit 1
 
 # Run py file
