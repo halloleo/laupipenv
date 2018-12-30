@@ -1,5 +1,23 @@
 # laupipenv - LAUnch Python script In Pipenv virtual ENVironment
 
+Small wrapper which makes sure that the virtual environment of a
+Python project is activated before running the Python script.
+
+This is good for scripts which should run straight from the command
+line and **it works even if the wrapper script is in a synced
+(Dropbox?) folder accessed by different machines with different
+locations for the virtual environment**.
+
+
+## Update December 2018: `pylauvenv`
+
+New version activates virtual environment from within Python. It is called `pylauvenv` and is a Python script. It assumes a running Python 3.6 or up in the path and looks for the location of virtual environments in the environment variables `$WORKON_HOME`, `$VIRTUALENV_HOME` and `$VENV` (in that order).
+
+
+***
+
+## Old ReadMe:
+
 Small (shell) wrapper which makes sure that the [Pipenv][] environment
 of a Python project is activated before running the Python
 script. 
@@ -41,7 +59,7 @@ and
 
 * a hard-code name of the virtual environemnt. This name has to be the same on all machines
 
-The environment variable `WORKON_HOME` has to be declared in one of the bash startup scripts. `WORKON_HOME` might be set already if you use [Virtualenvwrapper][]; teh variable points to the parent directory of all virtual environments.
+The environment variable `WORKON_HOME` has to be declared in one of the bash startup scripts. `WORKON_HOME` might be set already if you use [Virtualenvwrapper][]; the variable points to the parent directory of all virtual environments.
 
 The name of the environment to activate is then hard-coded in the `laupipenv_fixed` warp per. This wrapper has to renamed in the same way as explain above for `laupipenv_general`.
 
