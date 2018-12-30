@@ -11,7 +11,13 @@ locations for the virtual environment**.
 
 ## Update December 2018: `pylauvenv`
 
-New version activates virtual environment from within Python. It is called `pylauvenv` and is a Python script. It assumes a running Python 3.6 or up in the path and looks for the location of virtual environments in the environment variables `$WORKON_HOME`, `$VIRTUALENV_HOME` and `$VENV` (in that order).
+New version activates virtual environment from within Python. It is
+called `pylauvenv` and is a Python script. It assumes a running Python
+3.6 or up in the path and looks for the location of virtual
+environments in the environment variables `$WORKON_HOME`,
+`$VIRTUALENV_HOME` and `$VENV` (in that order).
+
+*Please note:* The virtual environment needs the file `activate_this.py` in the `bin` directory. For this create the environment with `virtualenv` or copy the  `activate_this.py` file from somewhere else in.
 
 
 ***
